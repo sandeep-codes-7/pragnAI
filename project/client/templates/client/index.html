@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog.ai</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@600;800&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Minimal custom styles left for behavior only */
+
+        /* Ensure body allows smooth scrolling */
+        html,
+        body {
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: auto;
+            -webkit-overflow-scrolling: touch;
+            background-color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        /* Hero section: promote to its own composite layer */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            will-change: transform, opacity;
+            transform: translateZ(0);
+        }
+
+        .aboutsec {
+            position: relative;
+            min-height: 100vh;
+            /* display: flex; */
+            /* justify-content: center; */
+            /* align-items: center; */
+            will-change: transform, opacity;
+            transform: translateZ(0);
+        }
+
+        /* Navbar: hidden initially, will fade/slide in */
+        #mainNav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            pointer-events: none;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: transform 300ms ease, opacity 300ms ease;
+            will-change: transform, opacity;
+        }
+
+        #mainNav .nav-inner {
+            pointer-events: auto;
+            background: rgba(17, 24, 39, 0.9);
+            backdrop-filter: blur(6px);
+            color: #fff;
+        }
+
+        /* Hero title transitions */
+        .hero-title {
+            transition: opacity 250ms linear, transform 250ms linear;
+            will-change: opacity, transform;
+        }
+
+        /* Space under fixed navbar when using anchored scrolling (JS also compensates) */
+        section {
+            scroll-margin-top: calc(var(--nav-height, 64px) + 12px);
+        }
+
+        /* .parent {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .child {
+            position: absolute;
+            height: 50px;
+            width: 50px;
+        } */
+    </style>
+</head>
+
+<body class="bg-white text-slate-900">
+
+
+
+    <nav id="mainNav" aria-label="Main navigation">
+        <div class="nav-inner max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="text-lg font-semibold">PragnAI</div>
+            <div class="space-x-4">
+                <a href="{% url 'client:index' %}" class="text-sm opacity-90 hover:opacity-100 text-slate-200"
+                    onclick="event.preventDefault(); window.location.replace(this.href);">Home</a>
+                <a href="#" data-scroll-to="section-5"
+                    class="text-sm opacity-90 hover:opacity-100 text-slate-200">About</a>
+                <a href="#" class="text-sm opacity-90 hover:opacity-100 text-slate-200">Contact</a>
+
+            </div>
+        </div>
+    </nav>
+    <!-- bg-gradient-to-br from-yellow-200 to-orange-400 -->
+    <!-- Hero Section -->
+    <section class="hero bg-gradient-to-br from-amber-50 to-stone-50 text-black" id="hero">
+        <!-- <div class="parent">
+            <div class="child">
+                <p class="text-white">child</p>
+            </div>
+        </div> -->
+        <div class="absolute top-12 right-4 z-50 text-sm text-black/90">
+            <div class="space-x-4 flex items-center">
+                <a href="#" data-scroll-to="section-5"
+                    class="text-sm opacity-90 hover:opacity-100 text-slate-900">About</a>
+                <a href="#" class="text-sm opacity-90 hover:opacity-100 text-slate-900">Contact</a>
+
+                <!-- Account dropdown -->
+                <div class="relative inline-block text-left">
+                    <button id="accountBtn" type="button" aria-haspopup="true" aria-expanded="false"
+                        class="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-md shadow-sm text-sm font-medium text-slate-900 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Account
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.12 1L10.53 13.06a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+
+                    <div id="accountMenu"
+                        class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-gray-50 ring-1 ring-black ring-opacity-5 hidden">
+                        <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="accountBtn">
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                                role="menuitem">Profile</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                                role="menuitem">Settings</a>
+                            <form method="POST" action="#" class="block">
+                                <button type="submit"
+                                    class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-slate-100"
+                                    role="menuitem">Sign out</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center px-4">
+            <!-- <h1 class="text-6xl font-bold mb-4 hero-title">PragnAI</h1> -->
+            <img src="{% static 'images/PAIlogo.png' %}" alt="logo" class="mx-auto my-0 w-64 ">
+            <p class="text-s">Your Customized learning platform</p>
+
+            <!-- <form class="mt-5">
+                <label for="search"
+                    class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+
+                        <p class="text-gray-900">AI</p>
+                    </div>
+                    <input type="search" id="search"
+                        class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="generate" required />
+                    <button type="submit"
+                        class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Generate</button>
+                </div>
+            </form> -->
+
+            <!-- Added hero buttons that scroll to sections -->
+            <!-- <div class="mt-5">
+                <h1 class="text-2xl font-bold text-gray-500">
+                    Categories
+                </h1>
+            </div> -->
+        </div>
+        <img src="{% static 'images/gear-svgrepo-com.svg' %}" alt="decorative" aria-hidden="true"
+            class="absolute bottom-0 left-0 w-32 md:w-40 lg:w-48 rounded-full shadow-xl object-cover pointer-events-none bg-transparent mix-blend-multiply">
+    </section>
+
+    <script>
+        // Throttle scroll updates with requestAnimationFrame for smoothness
+        (function () {
+            const nav = document.getElementById('mainNav');
+            const hero = document.getElementById('hero');
+            const title = document.querySelector('.hero-title');
+            let ticking = false;
+
+            function clamp(v, a = 0, b = 1) {
+                return Math.max(a, Math.min(b, v));
+            }
+
+            function onScroll() {
+                if (!ticking) {
+                    window.requestAnimationFrame(update);
+                    ticking = true;
+                }
+            }
+
+            function update() {
+                const scrollY = window.scrollY || window.pageYOffset;
+                const heroHeight = hero ? hero.offsetHeight : window.innerHeight;
+                const prog = clamp(scrollY / (heroHeight * 0.6), 0, 1);
+
+                nav.style.opacity = String(prog);
+                nav.style.transform = `translateY(${(1 - prog) * -10}px)`;
+                nav.style.pointerEvents = prog > 0.05 ? 'auto' : 'none';
+
+                const titleOpacity = clamp(1 - prog * 1.2, 0, 1);
+                const titleTranslate = prog * -24;
+                title.style.opacity = String(titleOpacity);
+                title.style.transform = `translateY(${titleTranslate}px)`;
+
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            update();
+
+            function refreshNavHeightVar() {
+                const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+                document.documentElement.style.setProperty('--nav-height', navHeight + 'px');
+                return navHeight;
+            }
+
+            refreshNavHeightVar();
+            window.addEventListener('resize', refreshNavHeightVar);
+
+            function scrollToSectionById(id) {
+                const target = document.getElementById(id);
+                if (!target) return;
+                const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+                const targetRect = target.getBoundingClientRect();
+                const targetY = window.scrollY + targetRect.top - navHeight - 12;
+                window.scrollTo({
+                    top: Math.max(0, targetY),
+                    behavior: 'smooth'
+                });
+            }
+
+            document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const id = this.getAttribute('data-scroll-to');
+                    if (!id) return;
+                    scrollToSectionById(id);
+                });
+            });
+
+            document.querySelectorAll('article button[data-scroll-to]').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const id = this.getAttribute('data-scroll-to') || this.closest('article')?.id;
+                    if (!id) return;
+                    scrollToSectionById(id);
+                });
+            });
+
+            if (window.location.hash) {
+                const id = window.location.hash.slice(1);
+                setTimeout(() => scrollToSectionById(id), 50);
+            }
+
+            // --- Account dropdown: toggle + close on outside/Escape ---
+            const accountBtn = document.getElementById('accountBtn');
+            const accountMenu = document.getElementById('accountMenu');
+
+            if (accountBtn && accountMenu) {
+                // Ensure menu starts hidden (in case HTML changed)
+                accountMenu.classList.add('hidden');
+                accountBtn.setAttribute('aria-expanded', 'false');
+
+                function closeAccount() {
+                    accountMenu.classList.add('hidden');
+                    accountBtn.setAttribute('aria-expanded', 'false');
+                }
+                function openAccount() {
+                    accountMenu.classList.remove('hidden');
+                    accountBtn.setAttribute('aria-expanded', 'true');
+                }
+
+                accountBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const isOpen = !accountMenu.classList.contains('hidden');
+                    isOpen ? closeAccount() : openAccount();
+                });
+
+                // Close when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!accountBtn.contains(e.target) && !accountMenu.contains(e.target)) closeAccount();
+                });
+
+                // Close on Escape
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') closeAccount();
+                });
+            }
+        })();
+    </script>
+
+    <!-- Floating Action Button (bottom-right) -->
+    <button id="floatingBtn" type="button" title="Create" aria-label="Create"
+        class="fixed bottom-6 right-6 z-50 inline-flex items-center justify-center w-14 h-14 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        <!-- plus icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+            <path fill-rule="evenodd"
+                d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                clip-rule="evenodd" />
+        </svg>
+    </button>
+
+    <script>
+        // Floating button behavior (example: scroll-to-top). Adjust action as needed.
+        (function () {
+            const fab = document.getElementById('floatingBtn');
+            if (!fab) return;
+            fab.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
