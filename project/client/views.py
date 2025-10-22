@@ -11,36 +11,6 @@ from openai import OpenAI
 load_dotenv()
 
 
-# messages = [
-#     {
-#         "role":"system",
-#         "content":(
-#             "your are professor who knows everything on the internet and you can give resources if someone asked",
-#         )
-#     },
-#     {
-#         "role":"user",
-#         "content":question,
-#     }
-# ]
-# # Guarded import of optional Perplexity SDK
-# try:
-#     from perplexity import Perplexity
-# except Exception:
-#     Perplexity = None
-
-# def get_perplexity_client():
-#     """Return a Perplexity client instance or None if not available/configured."""
-#     if Perplexity is None:
-#         return None
-#     api_key = os.environ.get("PERPLEXITY_API_KEY") or os.environ.get("PERPLEXITY_API_TOKEN")
-#     if not api_key:
-#         return None
-#     try:
-#         return Perplexity(api_key=api_key)
-#     except Exception:
-#         return None
-
 def index(request):
     paths = Path.objects.all()
     if request.method != "POST":
@@ -92,8 +62,8 @@ def eval_view(request):
     ]
     # print(question)
     try:
-        # create client (do not perform network calls at import time)
-        clt = OpenAI(api_key=api_key)  # add base_url only if required by your provider
+       
+        clt = OpenAI(api_key=api_key)  
         res = clt.chat.completions.create(model="o3-mini", messages=messages)
         print(res)
 
