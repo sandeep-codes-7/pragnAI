@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from django.conf import settings
 import os
+from dotenv import load_dotenv
 import requests
 from .models import Path, ForNewsLetter
 
 from openai import OpenAI
 
-# api_key = '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'
+
+load_dotenv()
+
+
 # messages = [
 #     {
 #         "role":"system",
@@ -71,7 +75,7 @@ def eval_view(request):
         return render(request, "client/eval.html", {"error": "Please enter a question."})
 
     # get API key from env
-    api_key = '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'
+    api_key = os.getenv('PERPLEXITY_API_KEY') 
     if not api_key:
         return render(request, "client/eval.html", {"error": "API key not configured. Set PERPLEXITY_API_KEY or OPENAI_API_KEY."})
 
