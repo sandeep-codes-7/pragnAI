@@ -7,7 +7,6 @@ from .models import Path, ForNewsLetter
 
 from openai import OpenAI
 
-
 load_dotenv()
 
 
