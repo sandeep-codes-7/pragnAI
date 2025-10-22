@@ -8,7 +8,7 @@ class ClientConfig(AppConfig):
 
     def ready(self):
         # connect once when Django app registry is ready (development)
-        mongo_uri = os.getenv('MONGO_URI', 'mongodb://localhost:27017/techblogs')
+        mongo_uri = os.getenv('MONGO_URI', 'mongodb://localhost:27017/pragnai')
         # safe: avoid reconnecting if already connected
         try:
             # use alias 'default' by default

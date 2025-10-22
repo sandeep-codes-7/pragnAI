@@ -109,7 +109,7 @@
             <div class="text-lg font-semibold">PragnAI</div>
             <div class="space-x-4">
                 <a href="{% url 'client:index' %}" class="text-sm opacity-90 hover:opacity-100 text-slate-200"
-                    onclick="event.preventDefault(); window.location.replace(this.href);" data-scroll-to="home">Home</a>
+                    onclick="event.preventDefault(); window.location.replace(this.href);">Home</a>
                 <a href="{% url 'client:about' %}" data-scroll-to="section-5"
                     class="text-sm opacity-90 hover:opacity-100 text-slate-200">About</a>
                 <a href="#" class="text-sm opacity-90 hover:opacity-100 text-slate-200">Contact</a>
@@ -147,105 +147,67 @@
     </nav>
     <!-- bg-gradient-to-br from-yellow-200 to-orange-400 -->
     <!-- Hero Section -->
-    <article id="home"></article>
     <section class="hero bg-gradient-to-br from-amber-50 to-stone-50 text-black" id="hero">
         <!-- <div class="parent">
             <div class="child">
                 <p class="text-white">child</p>
             </div>
         </div> -->
-        <article id="home" class="hidden"> class</article>
         <div class="absolute top-12 right-4 z-50 text-sm text-black/90">
             <div class="space-x-4 flex items-center">
-                <a href="{% url 'client:about' %}" class="text-sm opacity-90 hover:opacity-100 text-slate-900">About</a>
+                <a href="{% url 'client:index' %}" class="text-sm opacity-90 hover:opacity-100 text-slate-900">Home</a>
                 <a href="{% url 'client:profile' %}"
                     class="text-sm opacity-90 hover:opacity-100 text-slate-900">Profile</a>
+
+                <!-- Account dropdown -->
+                <!-- <div class="relative inline-block text-left">
+                    <button id="accountBtn" type="button" aria-haspopup="true" aria-expanded="false"
+                        class="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-md shadow-sm text-sm font-medium text-slate-900 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Account
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.12 1L10.53 13.06a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+
+                    <div id="accountMenu"
+                        class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-gray-50 ring-1 ring-black ring-opacity-5 hidden">
+                        <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="accountBtn">
+                            <a href="{% url 'client:profile' %}"
+                                class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                                role="menuitem">Profile</a>
+                            <a href="{% url 'client:profile' %}"
+                                class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                                role="menuitem">Settings</a>
+                            <form method="POST" action="#" class="block">
+                                <button type="submit"
+                                    class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-slate-100"
+                                    role="menuitem">Sign out</button>
+                            </form>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
         <div class="text-center px-4">
             <!-- <h1 class="text-6xl font-bold mb-4 hero-title">PragnAI</h1> -->
             <img src="{% static 'images/PAIlogo.png' %}" alt="logo" class="mx-auto my-0 w-64 ">
-            <p class="text-s">Your Customized learning platform</p>
-            <div class="flex flex-col justify-center items-center mt-5">
-                <h1 class="text-2xl font-bold">Scroll down</h1>
-                <img src="{% static 'images/down-arrow.png' %}" alt="arrow down" class="w-2">
+            <p class="text-s">Developed by: NeuroForge</p>
+            <div class="text text-gray-600 text-sm mt-4">
+                all rights reserved &copy; 2025
             </div>
-
-            <!-- <form class="mt-5">
-                <label for="search"
-                    class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-                <div class="relative">
-                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-
-                        <p class="text-gray-900">AI</p>
-                    </div>
-                    <input type="search" id="search"
-                        class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="generate" required />
-                    <button type="submit"
-                        class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Generate</button>
-                </div>
-            </form> -->
-
-            <!-- Added hero buttons that scroll to sections -->
-            <!-- <div class="mt-5">
-                <h1 class="text-2xl font-bold text-gray-500">
-                    Categories
-                </h1>
-            </div> -->
-        </div>
-    </section>
-    <section
-        class="bg-gradient-to-b from-amber-200 to-amber-400 text-black mx-auto flex flex-col justify-center items-center">
-        <div class="mx-auto font-bold text-4xl px-5 py-5">
-            <h1>Explore Paths</h1>
-        </div>
-        <div class="max-w-6xl mx-auto w-full px-4">
-            <div class="relative">
-                <!-- Prev button (hidden on small screens) -->
-                <!-- <button id="carouselPrev" aria-label="Previous"
-                    class="hidden md:flex items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white/90 shadow hover:bg-white"> -->
-                <!-- left chevron -->
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-700" viewBox="0 0 20 20"
-                        fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd"
-                            d="M12.293 16.293a1 1 0 010-1.414L15.586 11H4a1 1 0 110-2h11.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                            clip-rule="evenodd" />
-                    </svg> -->
-                <!-- </button> -->
-
-                <!-- Carousel container -->
-                <div id="linearScroll"
-                    class="overflow-x-auto scroll-smooth snap-x snap-mandatory flex gap-4 px-4 py-6 scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-transparent ">
-                    <!-- Card 1 -->
-                    {% for i in paths %}
-                    <article
-                        class="snap-start min-w-[220px] md:min-w-[260px] lg:min-w-[320px] bg-white rounded-xl shadow p-4 flex-shrink-0">
-                        <div
-                            class="h-40 rounded-md bg-gradient-to-r from-amber-300 to-amber-500 mb-4 flex items-center justify-center font-bold text-2xl">
-                            {{ i.title }}</div>
-                        <h3 class="font-semibold text-lg mb-1">Path: {{ i.title }}</h3>
-                        <p class="text-sm text-slate-600">{{ i.description }}</p>
-                    </article>
-                    {% endfor %}
-                    <!-- Add more cards as needed -->
-                </div>
-
-                <!-- Next button (hidden on small screens) -->
-                <!-- <button id="carouselNext" aria-label="Next"
-                    class="hidden md:flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white/90 shadow hover:bg-white"> -->
-                <!-- right chevron -->
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-700" viewBox="0 0 20 20"
-                        fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd"
-                            d="M7.707 3.707a1 1 0 00-1.414 1.414L10.586 10 6.293 14.293a1 1 0 101.414 1.414l5-5a1 1 0 000-1.414l-5-5z"
-                            clip-rule="evenodd" />
-                    </svg> -->
-                <!-- </button> -->
+            <h1 class="mt-10 font-bold text-2xl">
+                Contact Us
+            </h1>
+            <div class="text text-gray-600 text-sm mt-2 flex justify-center items-center">
+                <a href="mailto:sandeepkarem.online@gmail.com">sandeepkarem.online@gmail.com</a>
             </div>
         </div>
     </section>
-    <section class="bg-gradient-to-b from-blue-700 to-blue-400 flex-col">
+
+    <!-- <section class="bg-gradient-to-b from-blue-700 to-blue-400 flex-col">
         <div class="text-white font-bold text-2xl flex justify-center items-center px-5 py-5">
             <h1>Want To Acheive Your Goals?</h1>
         </div>
@@ -259,8 +221,8 @@
                 class="px-5 py-1 text-white bg-transparent rounded-full shadow-sm text-sm font-medium text-slate-100 ">sign
                 up</button>
         </div>
-    </section>
-    <section class="bg-white flex gap-4 justify-center items-center px-5 py-5">
+    </section> -->
+    <!-- <section class="bg-white flex gap-4 justify-center items-center px-5 py-5">
         <article>
             <div
                 class="h-[250px] w-[400px] rounded-md bg-gradient-to-r from-amber-300 to-amber-500 mb-4 flex-grid p-4 font-semibold text-2xl">
@@ -287,84 +249,10 @@
                     in</button>
             </div>
         </article>
-    </section>
-    <section class="bg-gradient-to-r from-blue-900 to-blue-900 flex gap-2 justify-center items-center px-5 py-5">
-        <article>
-            <div
-                class="h-[250px] w-[400px] rounded-md bg-transparent mb-4 flex-col p-4 font-semibold text-2xl text-white">
-                <h1 class="font-bold">Adapt. Advance. Achieve. </h1>
-                <div class="flex py-2 gap-5">
-                    <a href="">
-                        <img src="{% static 'images/instagram.png' %}" alt="me" class="w-8">
-                    </a>
-                    <a href="">
-                        <img src="{% static 'images/instagram.png' %}" alt="me" class="w-8">
-                    </a>
-                    <a href="">
-                        <img src="{% static 'images/instagram.png' %}" alt="me" class="w-8">
-                    </a>
-                </div>
-                <div class="flex text-xs gap-1">
-                    <a href="">privacy policy</a>
-                    <a href="">Terms of services</a>
-                </div>
-                <p class="text-xs py-5 mt-2 font-semibold">Designed and developed by NeuroForge</p>
-            </div>
-        </article>
-        <article>
-            <div
-                class="h-[250px] w-[400px] rounded-md bg-transparent mb-4 flex-col p-4 font-semibold text-2xl text-white">
-                <h1 class="font-bold">PragnAI</h1>
-                <hr class="h-px my-8 bg-white border-0 dark:bg-white" />
-                <div class="flex-col py-2 text-xl font-semibold">
-                    <a href="" class="">- Help</a>
-                    <a href="">- About</a>
-                    <a href="">- Insights</a>
-                </div>
-
-            </div>
-        </article>
-        <article>
-            <div
-                class="h-[250px] w-[400px] rounded-md bg-gradient-to-r from-amber-300 to-amber-500 mb-4 flex-col p-4 font-semibold text-2xl text-white rounded-lg">
-                <h1 class="font-bold text-black">Sign Up To Our NewLetter</h1>
-                <p class="text-xs text-black py-2 mt-2 font-semibold">Receive the latest updates , Stay informed with
-                    exclusive news
-                    straight to
-                    your inbox!</p>
-                <div class="w-full max-w-sm min-w-[200px]">
-                    <div class="relative">
-                        <!-- <form method="POST" action="{% url 'client:index' %}">
-                            {% csrf_token %}
-                            <input type="email"
-                                class="w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pl-3 pr-16 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                                placeholder="Email Address" required />
-                            <button
-                                class="absolute right-1 top-1 rounded bg-slate-800 py-1 px-2.5 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                                type="button">
-                                Submit
-                            </button>
-                        </form> -->
-                        <form method="post" action="{% url 'client:index' %}">
-                            {% csrf_token %}
-                            <input name="email" type="email"
-                                class="w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pl-3 pr-16 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                                placeholder="email" required />
-                            <button type="submit"
-                                class="absolute right-1 top-1 rounded bg-slate-800 py-1 px-2.5 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
-                                submit
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                <!-- <div class="flex text-xs gap-1">
-                    <a href="">privacy policy</a>
-                    <a href="">Terms of services</a>
-                </div> -->
-                <!-- <p class="text-xs py-5 mt-2 font-semibold">Designed and developed by NeuroForge</p> -->
-            </div>
-        </article>
-    </section>
+    </section> -->
+    <!-- <section class="bg-gradient-to-r from-blue-900 to-blue-900 flex gap-2 justify-center items-center px-5 py-5">
+       
+    </section> -->
     <!-- <section class="bg-black flex flex-col justify-center items-center">
         <h1 class="text-white font-bold text-4xl">Contact</h1>
 
@@ -510,32 +398,15 @@
     </script>
 
     <!-- Floating Action Button (bottom-right) -->
-    <button id="floatingBtn" type="button" title="Create Path" aria-label="Create"
-        data-navigate="{% url 'client:eval' %}"
+    <!-- <button id="floatingBtn" type="button" title="Create Path" aria-label="Create"
         class="fixed bottom-6 right-6 z-50 inline-flex items-center justify-center w-14 h-14 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-        <!-- plus icon -->
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
             <path fill-rule="evenodd"
                 d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                 clip-rule="evenodd" />
         </svg>
-    </button>
-
-    <script>
-        // Navigation handler for elements with data-navigate
-        (function () {
-            document.querySelectorAll('[data-navigate]').forEach(el => {
-                el.addEventListener('click', function (e) {
-                    // allow anchors/buttons to behave normally if you want by removing preventDefault
-                    e.preventDefault();
-                    const url = this.getAttribute('data-navigate') || this.dataset.navigate;
-                    if (!url) return;
-                    // full page navigation
-                    window.location.href = url;
-                });
-            });
-        })();
-    </script>
+    </button> -->
 
 </body>
 
